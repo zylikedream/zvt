@@ -5,7 +5,7 @@ from typing import Type
 
 from zvt import zvt_config
 from zvt.contract import Mixin
-from zvt.informer import EmailInformer
+# from zvt.informer import EmailInformer
 
 logger = logging.getLogger("__name__")
 
@@ -22,7 +22,7 @@ def run_data_recorder(
     logger.info(f" record data: {domain.__name__}, entity_provider: {entity_provider}, data_provider: {data_provider}")
 
     while retry_times > 0:
-        email_action = EmailInformer()
+        # email_action = EmailInformer()
 
         try:
             domain.record_data(
@@ -30,7 +30,7 @@ def run_data_recorder(
             )
             msg = f"record {domain.__name__} success"
             logger.info(msg)
-            email_action.send_message(zvt_config["email_username"], msg, msg)
+            # email_action.send_message(zvt_config["email_username"], msg, msg)
             break
         except Exception as e:
             logger.exception("report error:{}".format(e))

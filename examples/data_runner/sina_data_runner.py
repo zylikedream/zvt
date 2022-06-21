@@ -7,7 +7,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from examples.recorder_utils import run_data_recorder
 from zvt import init_log, zvt_config
 from zvt.domain import *
-from zvt.informer.informer import EmailInformer
+# from zvt.informer.informer import EmailInformer
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +17,7 @@ sched = BackgroundScheduler()
 @sched.scheduled_job("cron", hour=15, minute=30, day_of_week=3)
 def record_block():
     run_data_recorder(domain=Block, data_provider="sina")
-    run_data_recorder(domain=Block, data_provider="sina", entity_provider="sina")
+    # run_data_recorder(domain=Block, data_provider="sina", entity_provider="sina")
 
 
 @sched.scheduled_job("cron", hour=15, minute=30)
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     init_log("sina_data_runner.log")
 
     record_block()
-    record_money_flow()
+    # record_money_flow()
 
     sched.start()
 

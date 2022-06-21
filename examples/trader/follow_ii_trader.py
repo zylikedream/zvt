@@ -44,12 +44,12 @@ class FollowIITrader(StockTrader):
 
 if __name__ == "__main__":
     code = "600519"
-    Stock.record_data(provider="eastmoney")
+    Stock.record_data(provider="em")
     Stock1dKdata.record_data(code=code, provider="em")
     StockActorSummary.record_data(code=code, provider="em")
     FollowIITrader(
-        start_timestamp="2002-01-01",
-        end_timestamp="2021-01-01",
+        start_timestamp="2021-01-01",
+        end_timestamp="2022-05-05",
         codes=[code],
         provider="em",
         adjust_type=AdjustType.qfq,

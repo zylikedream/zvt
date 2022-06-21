@@ -46,7 +46,7 @@ class SinaStockMoneyFlowRecorder(FixedCycleDataRecorder):
             "url": self.generate_url(code="{}{}".format(entity.exchange, entity.code), number=size),
             "security_item": entity,
         }
-
+        self.logger.info("record param = {}".format(param))
         resp = requests.get(param["url"])
         # {opendate:"2019-04-29",trade:"10.8700",changeratio:"-0.0431338",turnover:"74.924",netamount:"-2903349.8500",
         # ratioamount:"-0.155177",r0:"0.0000",r1:"2064153.0000",r2:"6485031.0000",r3:"10622169.2100",r0_net:"0.0000",
